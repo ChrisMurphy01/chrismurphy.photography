@@ -1,0 +1,30 @@
+{
+  "name": "chrismurphy.photography",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisMurphy01/chrismurphy.photography.git"
+  },
+  "author": "Chris Murphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisMurphy01/chrismurphy.photography/issues"
+  },
+  "homepage": "https://github.com/ChrisMurphy01/chrismurphy.photography#readme",
+  "dependencies": {
+    "images": "^3.0.2",
+    "parceljs": "^0.0.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "sass": "^1.17.0"
+  }
+}

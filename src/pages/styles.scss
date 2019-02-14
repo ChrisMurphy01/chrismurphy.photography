@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 1em 4em;
+  font-size: 1.8rem;
+  background-color: black;
+  color: white;
+}
+
+.gallery-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+
+  li {
+    margin-bottom: 10%;
+    overflow: hidden;
+    max-width: calc(1000px - 6%);
+  }
+}
+
+.photo-image--link {
+  display: block;
+  margin-left: -3%;
+  margin-right: -3%;
+  position: relative;
+}
+
+.photo-image {
+  width: 100%;
+  display: block;
+}
+
+.buy-now {
+  color: black;
+  position: absolute;
+  bottom: 1em;
+  right: 10%;
+}

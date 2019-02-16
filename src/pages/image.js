@@ -19,6 +19,7 @@ class Image extends React.Component {
     fetch(`${process.env.LAMBDA_ENDPOINT}purchase`, {
       method: 'POST',
       mode: 'no-cors',
+      key: process.env.STRIPE_PUBLISHABLE_KEY,
       body: JSON.stringify({
         token,
         amount,

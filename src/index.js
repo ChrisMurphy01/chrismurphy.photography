@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Home from './pages/home'
 import Sizes from './pages/sizes'
 import Image from './pages/image'
+import Checkout from './pages/checkout'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -12,6 +13,7 @@ const Index = () => {
       <div>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={Sizes} />
+        <Route path="/checkout" component={Checkout} />
         <Route path="/image/:name" component={Image} />
       </div>
     </Router>

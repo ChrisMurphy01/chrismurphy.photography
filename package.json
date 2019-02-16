@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "lambda-serve": "netlify-lambda serve lambda-src",
+    "build": "NODE_ENV=production parcel build src/index.html && netlify-lambda build lambda-src",
+    "dev": "concurrently \"parcel src/index.html/\" \"yarn run lambda-serve\"",
+    "devold": "parcel src/index.html",
+    "buildold": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,13 +22,20 @@
   },
   "homepage": "https://github.com/ChrisMurphy01/chrismurphy.photography#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "images": "^3.0.2",
     "parceljs": "^0.0.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-script-loader": "^0.0.1",
+    "react-stripe-checkout": "^2.6.3",
+    "stripe": "^6.25.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
+    "netlify-lambda": "^1.4.2",
     "parcel": "^1.11.0",
     "sass": "^1.17.0"
   }

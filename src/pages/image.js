@@ -1,73 +1,122 @@
 import React from 'react'
 import { all } from '../components/Images'
+import StripeCheckout from 'react-stripe-checkout'
+import StripeButton from '../components/StripeButton'
 
-const Image = ({ match }) => {
-  const imageName = match.params.name
-  let imageUrl
+import uuid from 'uuid/v4'
 
-  for (const i in all) {
-    if (all[i][imageName]) {
-      imageUrl = all[i][imageName]
-    }
+class Image extends React.Component {
+  constructor() {
+    super()
+
+    this.onToken = this.onToken.bind(this)
   }
-  return (
-    <div>
-      <h2>Image</h2>
-      <img src={`${imageUrl}`} />
 
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="ZVYXSYC5J5VGC" />
-        <input type="hidden" name="cn" value="IMAGE_ID_HERE" />
-        <table>
-          <tr>
-            <td>
-              <input type="hidden" name="on0" value="Size" />
-              Size
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select name="os0">
-                <option value="test">test £0.01 GBP</option>
-                <option value="15x10 (381x254 mm)">
-                  15x10 (381x254 mm) £40.00 GBP
-                </option>
-                <option value="18x12 (457x304 mm)">
-                  18x12 (457x304 mm) £65.00 GBP
-                </option>
-                <option value="24x16 (609x406 mm)">
-                  24x16 (609x406 mm) £95.00 GBP
-                </option>
-                <option value="30x20 (762x508 mm)">
-                  30x20 (762x508 mm) £120.00 GBP
-                </option>
-              </select>
-            </td>
-          </tr>
-        </table>
-        <input type="hidden" name="currency_code" value="GBP" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal – The safer, easier way to pay online!"
+  onToken(token) {
+    const amount = 1000
+    fetch(`${process.env.LAMBDA_ENDPOINT}purchase`, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({
+        token,
+        amount,
+        idempotency_key: uuid()
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
+      .then(res => res.json())
+      .catch(error => console.error(error))
+      .then(response => {
+        let message =
+          typeof response === 'object' && response.status === 'succeeded'
+            ? 'Charge was successful!'
+            : 'Charge failed.'
+
+        console.log({ message })
+        console.log(response)
+      })
+
+    // fetch('/save-stripe-token', {
+    //   method: 'POST',
+    //   body: JSON.stringify(token),
+    // }).then(response => {
+    //   response.json().then(data => {
+    //     alert(`We are in business, ${data.email}`);
+    //   });
+    // });
+  }
+
+  // handleOnClick(e) {
+  //   const amount = 1000
+  //   // const $messageBox = document.getElementById('messageBox');
+  //   // const $button = document.querySelector('button');
+
+  //   const handler = StripeCheckout.configure({
+  //     key: process.env.STRIPE_PUBLISHABLE_KEY,
+  //     image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+  //     locale: 'auto',
+  //     // closed: function() {
+  //     //   resetButtonText()
+  //     // },
+  //     token: function(token) {
+  //       fetch(`${process.env.LAMBDA_ENDPOINT}purchase`, {
+  //         method: 'POST',
+  //         body: JSON.stringify({
+  //           token,
+  //           amount,
+  //           idempotency_key: uuid()
+  //         }),
+  //         headers: new Headers({
+  //           'Content-Type': 'application/json'
+  //         })
+  //       })
+  //         .then(res => res.json())
+  //         .catch(error => console.error(error))
+  //         .then(response => {
+  //           let message =
+  //             typeof response === 'object' && response.status === 'succeeded'
+  //               ? 'Charge was successful!'
+  //               : 'Charge failed.'
+
+  //           console.log({ message })
+  //           console.log(response)
+  //         })
+  //     }
+  //   })
+
+  //   handler.open({
+  //     amount,
+  //     name: 'Test Shop',
+  //     description: 'A Fantastic New Widget'
+  //   })
+  // }
+
+  render() {
+    const imageName = this.props.match.params.name
+    let imageUrl
+
+    // const liveKey = 'pk_live_99Hu8uS630yGzCzN1y2nBXd5'
+
+    for (const i in all) {
+      if (all[i][imageName]) {
+        imageUrl = all[i][imageName]
+      }
+    }
+    return (
+      <div>
+        <h2>Image</h2>
+        <StripeCheckout
+          token={this.onToken}
+          stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
         />
-        <img
-          alt=""
-          border="0"
-          src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif"
-          width="1"
-          height="1"
-        />
-      </form>
-    </div>
-  )
+
+        <button onClick={this.handleOnClick}>buy</button>
+        <img src={`f${imageUrl}`} />
+      </div>
+    )
+  }
 }
 
 export default Image

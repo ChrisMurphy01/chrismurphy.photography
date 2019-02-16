@@ -13,6 +13,8 @@ class Image extends React.Component {
   }
 
   onToken(token) {
+    console.log({ token })
+    console.log(`${process.env.LAMBDA_ENDPOINT}purchase`)
     const amount = 1000
     fetch(`${process.env.LAMBDA_ENDPOINT}purchase`, {
       method: 'POST',

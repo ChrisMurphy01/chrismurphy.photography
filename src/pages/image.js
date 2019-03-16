@@ -21,6 +21,7 @@ class Image extends React.Component {
       body: JSON.stringify({
         token,
         amount,
+        curreny: 'gbp',
         idempotency_key: uuid()
       }),
       headers: new Headers({
@@ -36,6 +37,7 @@ class Image extends React.Component {
             ? 'Charge was successful!'
             : 'Charge failed.'
 
+        console.log({ response })
         console.log({ message })
         console.log(response)
       })
@@ -114,7 +116,6 @@ class Image extends React.Component {
           stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
         />
 
-        <button onClick={this.handleOnClick}>buy</button>
         <img src={`${imageUrl}`} className="photo-image" />
       </div>
     )

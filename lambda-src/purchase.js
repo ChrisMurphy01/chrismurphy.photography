@@ -36,7 +36,7 @@ exports.handler = function(event, context, callback) {
 
   stripe.charges.create(
     {
-      currency: 'usd',
+      currency: data.currency,
       amount: data.amount,
       source: data.token.id,
       receipt_email: data.token.email,

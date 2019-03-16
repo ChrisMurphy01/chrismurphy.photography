@@ -40,7 +40,7 @@ exports.handler = function(event, context, callback) {
       amount: data.amount,
       source: data.token.id,
       receipt_email: data.token.email,
-      description: `charge for a widget`
+      description: data.description
     },
     {
       idempotency_key: data.idempotency_key
@@ -54,7 +54,7 @@ exports.handler = function(event, context, callback) {
         charge === null || charge.status !== 'succeeded'
           ? 'failed'
           : charge.status
-
+      console.log('lambda', { response })
       callback(null, {
         statusCode,
         headers,

@@ -29,9 +29,8 @@ class Checkout extends React.Component {
     })
       .then(res => {
         console.log('res', res)
-        console.log('res', res.body)
-        console.log('res', res.body.status)
-        // res.json()
+        const x = res.json()
+        console.log('res', x)
       })
       .catch(error => console.log(error))
       .then(response => {

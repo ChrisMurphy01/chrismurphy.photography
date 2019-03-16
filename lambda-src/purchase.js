@@ -58,7 +58,7 @@ exports.handler = function(event, context, callback) {
       callback(null, {
         statusCode,
         headers,
-        body: JSON.stringify({ status })
+        body: status //JSON.stringify({ status })
       })
     }
   )

@@ -6,6 +6,7 @@ export default Page =>
     render() {
       return (
         <div>
+          <Nav />
           <Page />
         </div>
       )

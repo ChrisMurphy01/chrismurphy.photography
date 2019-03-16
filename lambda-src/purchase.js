@@ -54,7 +54,7 @@ exports.handler = function(event, context, callback) {
         charge === null || charge.status !== 'succeeded'
           ? 'failed'
           : charge.status
-      console.log('lambda', { response })
+      console.log('lambda', { err }, { charge })
       callback(null, {
         statusCode,
         headers,

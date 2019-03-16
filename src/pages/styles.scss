@@ -14,10 +14,12 @@ html {
 
 body {
   margin: 0;
-  padding: 1em 4em;
+  padding: 1em;
   font-size: 1.8rem;
   background-color: black;
   color: white;
+  max-width: 900px;
+  margin: auto;
 }
 
 .gallery-list {
@@ -38,8 +40,6 @@ body {
 
 .photo-image--link {
   display: block;
-  margin-left: -3%;
-  margin-right: -3%;
   position: relative;
 }
 

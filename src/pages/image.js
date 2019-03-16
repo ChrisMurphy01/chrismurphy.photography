@@ -13,20 +13,19 @@ class Image extends React.Component {
   }
 
   onToken(token) {
-    console.log({ token })
-    console.log(`${process.env.LAMBDA_ENDPOINT}purchase`)
     const amount = 1000
-    fetch(`${process.env.LAMBDA_ENDPOINT}purchase`, {
+    fetch(`${process.env.LAMBDA_ENDPOINT}purchase.js`, {
+      // fetch(`../lambda-src/purchase`, {
       method: 'POST',
       mode: 'no-cors',
-      api_key: process.env.STRIPE_PUBLISHABLE_KEY,
       body: JSON.stringify({
         token,
         amount,
         idempotency_key: uuid()
       }),
       headers: new Headers({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        requestId: process.env.STRIPE_PUBLISHABLE_KEY
       })
     })
       .then(res => res.json())
@@ -116,7 +115,7 @@ class Image extends React.Component {
         />
 
         <button onClick={this.handleOnClick}>buy</button>
-        <img src={`f${imageUrl}`} />
+        <img src={`${imageUrl}`} className="photo-image" />
       </div>
     )
   }

@@ -29,11 +29,14 @@ class Checkout extends React.Component {
     })
       .then(res => {
         console.log('res', res)
-        res.json()
+        console.log('res', res.body)
+        console.log('res', res.body.status)
+        // res.json()
       })
       .catch(error => console.log(error))
       .then(response => {
         console.log(response)
+        console.log(response.status)
       })
   }
   render() {

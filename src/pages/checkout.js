@@ -33,7 +33,7 @@ class Checkout extends React.Component {
       })
       .catch(error => console.log(error))
       .then(response => {
-        console.log(response.body)
+        console.log(response)
       })
   }
   render() {

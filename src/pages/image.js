@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '../components/Nav'
+import Header from '../components/Header'
 import { all } from '../components/Images'
 
 class Image extends React.Component {
@@ -16,7 +16,7 @@ class Image extends React.Component {
     }
     return (
       <div>
-        <Nav />
+        <Header showFilter="false" />
         <h2>Image</h2>
         <img src={`${imageUrl}`} className="photo-image" />
       </div>

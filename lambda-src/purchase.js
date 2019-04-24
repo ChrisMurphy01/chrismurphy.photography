@@ -55,11 +55,10 @@ exports.handler = function(event, context, callback) {
           ? 'failed'
           : charge.status
       console.log('lambda', { err }, { charge }, '\n', '\n')
-      charge = charge.json()
       callback(null, {
         statusCode,
         headers,
-        body: JSON.stringify({ charge })
+        body: JSON.stringify({ status })
       })
     }
   )

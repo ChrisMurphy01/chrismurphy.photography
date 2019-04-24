@@ -30,51 +30,77 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Chris Murphy</h1>
-        <h2>Photography</h2>
         <main>
-          <h2>Black &amp; White</h2>
-          <ul className="gallery-list">
-            {Object.keys(BNW).map((image, i) => {
-              return this.galleryItem(image, i, BNW)
-            })}
-          </ul>
-          <h2>Ice Worlds</h2>
-          <ul className="gallery-list">
-            {Object.keys(iceworlds).map((image, i) => {
-              return this.galleryItem(image, i, iceworlds)
-            })}
-          </ul>
-          <h2>Flora</h2>
-          <ul className="gallery-list">
-            {Object.keys(flora).map((image, i) => {
-              return this.galleryItem(image, i, flora)
-            })}
-          </ul>
-          <h2>London</h2>
-          <ul className="gallery-list">
-            {Object.keys(london).map((image, i) => {
-              return this.galleryItem(image, i, london)
-            })}
-          </ul>
-          <h2>Seascapes</h2>
-          <ul className="gallery-list">
-            {Object.keys(seascapes).map((image, i) => {
-              return this.galleryItem(image, i, seascapes)
-            })}
-          </ul>
-          <h2>Waterscapes</h2>
-          <ul className="gallery-list">
-            {Object.keys(waterscapes).map((image, i) => {
-              return this.galleryItem(image, i, waterscapes)
-            })}
-          </ul>
-          <h2>Woodland</h2>
-          <ul className="gallery-list">
-            {Object.keys(woodland).map((image, i) => {
-              return this.galleryItem(image, i, woodland)
-            })}
-          </ul>
+          {this.props.filter === 'BNW' && (
+            <div>
+              <h2>Black &amp; White</h2>
+              <ul className="gallery-list">
+                {Object.keys(BNW).map((image, i) => {
+                  return this.galleryItem(image, i, BNW)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'iceworlds' && (
+            <div>
+              <h2>Ice Worlds</h2>
+              <ul className="gallery-list">
+                {Object.keys(iceworlds).map((image, i) => {
+                  return this.galleryItem(image, i, iceworlds)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'flora' && (
+            <div>
+              <h2>Flora</h2>
+              <ul className="gallery-list">
+                {Object.keys(flora).map((image, i) => {
+                  return this.galleryItem(image, i, flora)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'london' && (
+            <div>
+              <h2>London</h2>
+              <ul className="gallery-list">
+                {Object.keys(london).map((image, i) => {
+                  return this.galleryItem(image, i, london)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'seascapes' && (
+            <div>
+              <h2>Seascapes</h2>
+              <ul className="gallery-list">
+                {Object.keys(seascapes).map((image, i) => {
+                  return this.galleryItem(image, i, seascapes)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'waterscapes' && (
+            <div>
+              <h2>Waterscapes</h2>
+              <ul className="gallery-list">
+                {Object.keys(waterscapes).map((image, i) => {
+                  return this.galleryItem(image, i, waterscapes)
+                })}
+              </ul>
+            </div>
+          )}
+          {this.props.filter === 'woodland' && (
+            <div>
+              <h2>Woodland</h2>
+              <ul className="gallery-list">
+                {Object.keys(woodland).map((image, i) => {
+                  return this.galleryItem(image, i, woodland)
+                })}
+              </ul>
+            </div>
+          )}
         </main>
       </React.Fragment>
     )

@@ -1,5 +1,5 @@
 :root {
-  --color-text: #333;
+  --color-text: rgb(88, 88, 88);
 }
 
 * {
@@ -58,7 +58,8 @@ body {
 }
 
 .enter-button {
-  padding: .125em .5em;
+  font-size: 1.6rem;
+  padding: .5em 1.25em;
   border-radius: 2em;
   border: solid 1px;
   display: inline-block;

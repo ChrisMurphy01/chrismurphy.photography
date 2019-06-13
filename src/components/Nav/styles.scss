@@ -1,0 +1,37 @@
+.nav-container {
+  border-bottom: solid 1px grey;
+}
+
+.nav {
+  padding: .25em;
+  margin: 0;
+  margin-top: 1em;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--color-text);
+
+  li {
+    flex-grow: 1;
+    color: white;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+.nav-link {
+  font-size: 2rem;
+  display: inline-block;
+  color: black;
+  background-color: rgba(255, 255, 255, .8);
+  border: solid 2px white;
+  padding: .5em 1em;
+  margin-bottom: 1em;
+
+  &:active,
+  &:hover,
+  &:focus {
+    border: dashed 2px black;
+  }
+}

@@ -1,0 +1,25 @@
+.galleries {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: space-evenly;
+
+  li {
+    flex-basis: 300px;
+    flex-grow: 0;
+    display: block;
+    margin: 1em .5em;
+    text-align: center;
+  }
+}
+
+.gallery-link {}
+
+.gallery-image {
+  display: block;
+  position: relative;
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 
 export default Page =>
   class DefaultLayout extends React.Component {
@@ -19,9 +19,12 @@ export default Page =>
 
     render() {
       return (
-        <div>
+        <div className="default-layout">
           <Header handleSetFilter={this.handleSetFilter} />
-          <Page filter={this.state.filter} />
+          <Page
+            filter={this.state.filter}
+            name={this.props.match.params.name}
+          />
         </div>
       )
     }

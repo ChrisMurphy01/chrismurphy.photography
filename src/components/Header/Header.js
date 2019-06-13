@@ -1,18 +1,18 @@
 import React from 'react'
-import Nav from './Nav'
+import './styles.scss'
+import Nav from '../Nav/Nav'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 const Header = props => {
   return (
-    <React.Fragment>
+    <header className="header">
       <Link to="/">
-        <h1>Chris Murphy</h1>
-        <h2>Photography</h2>
+        <h1 className="title">Chris Murphy</h1>
       </Link>
       {props.showFilter !== 'false' && (
         <Nav handleSetFilter={props.handleSetFilter} />
       )}
-    </React.Fragment>
+    </header>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/Header'
-import { all } from '../components/Images'
+import Header from '../components/Header/Header'
+import { all } from '../components/Images/Images'
 
 class Image extends React.Component {
   render() {

@@ -1,0 +1,34 @@
+.gallery-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+
+  li {
+    margin-bottom: 10%;
+    overflow: hidden;
+    max-width: calc(1000px - 6%);
+  }
+}
+
+.photo-image--link {
+  display: block;
+  position: relative;
+}
+
+.photo-image {
+  width: 100%;
+  max-width: 1000px;
+  display: block;
+  border: solid 1px #ccc;
+}
+
+.buy-now {
+  color: black;
+  position: absolute;
+  bottom: 1em;
+  right: 10%;
+}

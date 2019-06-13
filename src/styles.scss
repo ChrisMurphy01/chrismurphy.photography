@@ -1,3 +1,7 @@
+:root {
+  --color-text: #333;
+}
+
 * {
   box-sizing: border-box;
 
@@ -14,47 +18,77 @@ html {
 
 body {
   margin: 0;
-  padding: 1em;
+  padding: 0;
   font-size: 1.8rem;
-  background-color: black;
-  color: white;
-  max-width: 900px;
+}
+
+.default-layout {
+  padding: 2em;
+  color: var(--color-text);
+  max-width: 1200px;
   margin: auto;
 }
 
-.gallery-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
+.home-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/home.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
 
-  li {
-    margin-bottom: 10%;
-    overflow: hidden;
-    max-width: calc(1000px - 6%);
+.home-content-wrapper {}
+
+.home-content {
+  margin: auto;
+  font-size: 1.4rem;
+
+  h1,
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
   }
 }
 
-.photo-image--link {
-  display: block;
-  position: relative;
+.logo {
+  width: 30px;
 }
 
-.photo-image {
-  width: 100%;
-  display: block;
+.enter-button {
+  padding: .125em .5em;
+  border-radius: 2em;
+  border: solid 1px;
+  display: inline-block;
+  background-color: white;
+  text-transform: lowercase;
 }
 
-.buy-now {
-  color: black;
-  position: absolute;
-  bottom: 1em;
-  right: 10%;
-}
+@media (min-width: 500px) {
+  .home-content-wrapper {
+    position: absolute;
+    top: 50%;
+    margin-top: -15vh;
+    right: 10vw;
+    padding: 5px;
+  }
 
+  .home-content {
+    color: inherit;
+    text-align: right;
+
+    h1,
+    h2 {
+      background-color: white;
+      border: solid 1px black;
+      padding: .125em .5em;
+      margin-bottom: .25em;
+    }
+  }
+
+}
 
 /**
 Not my css - for stripe form
@@ -174,41 +208,9 @@ Not my css - for stripe form
 END OF  Not my css - for stripe form
 **/
 
+
 a {
-  color: white;
+  color: inherit;
   font-size: 2rem;
   text-decoration: none;
-
-}
-
-.nav-container {
-  border-bottom: solid 1px grey;
-}
-
-.nav {
-  padding: 1em 0 0;
-  margin: 0;
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
-  li {
-
-    button {
-      font-size: 2rem;
-      display: inline-block;
-      color: black;
-      background-color: rgba(255, 255, 255, .8);
-      border: solid 2px white;
-      padding: .5em 1em;
-      margin-bottom: 1em;
-
-      &:active,
-      &:hover,
-      &:focus {
-        border: dashed 2px black;
-      }
-    }
-  }
 }

@@ -1,5 +1,6 @@
 :root {
   --color-text: rgb(88, 88, 88);
+  --gutter: 1em;
 }
 
 * {
@@ -35,12 +36,13 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/home.jpg') no-repeat;
+  background: url("../images/home.jpg") no-repeat;
   background-size: cover;
   background-position: 50% 50%;
 }
 
-.home-content-wrapper {}
+.home-content-wrapper {
+}
 
 .home-content {
   margin: auto;
@@ -59,7 +61,7 @@ body {
 
 .enter-button {
   font-size: 1.6rem;
-  padding: .5em 1.25em;
+  padding: 0.5em 1.25em;
   border-radius: 2em;
   border: solid 1px;
   display: inline-block;
@@ -84,11 +86,10 @@ body {
     h2 {
       background-color: white;
       border: solid 1px black;
-      padding: .125em .5em;
-      margin-bottom: .25em;
+      padding: 0.125em 0.5em;
+      margin-bottom: 0.25em;
     }
   }
-
 }
 
 /**
@@ -118,7 +119,7 @@ Not my css - for stripe form
   height: 40px;
   line-height: 40px;
   padding: 0 14px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   color: #fff;
   border-radius: 4px;
   font-size: 15px;
@@ -143,7 +144,7 @@ Not my css - for stripe form
   cursor: pointer;
   background-color: #7795f8;
   transform: translateY(-1px);
-  box-shadow: 0 7px 14px rgba(50, 50, 93, .10), 0 3px 6px rgba(0, 0, 0, .08);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 #form-css input,
@@ -153,8 +154,9 @@ Not my css - for stripe form
   max-width: 100%;
   padding: 10px 14px;
   font-size: 1em;
-  font-family: 'Source Code Pro', monospace;
-  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  font-family: "Source Code Pro", monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
+    rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border: 0;
   outline: 0;
   border-radius: 4px;
@@ -167,8 +169,9 @@ Not my css - for stripe form
   max-width: 100%;
   padding: 10px 14px;
   font-size: 1em;
-  font-family: 'Source Code Pro', monospace;
-  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  font-family: "Source Code Pro", monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
+    rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border: 0;
   outline: 0;
   border-radius: 4px;
@@ -181,8 +184,9 @@ Not my css - for stripe form
   max-width: 100%;
   padding: 10px 14px;
   font-size: 1em;
-  font-family: 'Source Code Pro', monospace;
-  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  font-family: "Source Code Pro", monospace;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
+    rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border: 0;
   outline: 0;
   border-radius: 4px;
@@ -199,19 +203,17 @@ Not my css - for stripe form
 
 #form-css input:focus,
 .StripeElement--focus {
-  box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px, rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
+  box-shadow: rgba(50, 50, 93, 0.109804) 0px 4px 6px,
+    rgba(0, 0, 0, 0.0784314) 0px 1px 3px;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
 }
-
 
 /**
 END OF  Not my css - for stripe form
 **/
 
-
 a {
   color: inherit;
-  font-size: 2rem;
-  text-decoration: none;
+  text-decoration: underline;
 }

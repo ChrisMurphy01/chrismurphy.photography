@@ -3,7 +3,7 @@
 }
 
 .nav {
-  padding: .25em;
+  padding: 0.25em;
   margin: 0;
   margin-top: 1em;
   list-style-type: none;
@@ -17,6 +17,10 @@
     color: white;
     text-align: center;
     display: inline-block;
+
+    a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -24,9 +28,9 @@
   font-size: 2rem;
   display: inline-block;
   color: black;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
   border: solid 2px white;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   margin-bottom: 1em;
 
   &:active,
